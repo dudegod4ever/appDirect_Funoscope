@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
+Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
+Généré le : 2016.04.30 à 07:35:12 PM EDT 
+
+  -->
+  <jaxb:bindings if-exists="true" scd="x-schema::">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="funoscope.web.generatedxml.v1.response"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings if-exists="true" scd="subscription">
+      <jaxb:class ref="funoscope.web.generatedxml.v1.response.Subscription"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>
