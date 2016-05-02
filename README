@@ -1,0 +1,42 @@
+HI,
+
+Welcome to the funoscope!!!
+
+Are you tired of wanting to read your horoscope and always having to remember either you zodiac sign or your date of birth? 
+	Yes, me too.
+Are you tired of being bossed by the stars as what will be your future?
+	Yes, me too.
+Are you tired of the same old bland optimistic message instead of the real stuff that's going to happen?
+	Yes, me too.
+	
+Funoscope is the answer.
+Funoscope will give you the right info you need all the time. It's simple, quick and mathematical computation will provide with the answers you deserves about your future.
+
+Get it on!!!
+
+Requirements
+Installed Java 8 version of your computer. 
+
+How it works?
+
+Simply go to the directory that you have copied the project and run from a command line
+	java -jar target/funoscope.jar
+
+
+Funoscope is ready and rolling
+
+Go to the link in any browser
+----
+http://localhost:8080/funoscope/v1
+----
+
+and a funoscope message will appear that will make your day
+
+Enjoy as many time as you want, every refresh of the page in your browser will give you a new message
+
+
+Great thanks to http://www.theonion.com/
+
+if at any time you want to change the code and rebuild it, the command is simple
+
+mvn clean package

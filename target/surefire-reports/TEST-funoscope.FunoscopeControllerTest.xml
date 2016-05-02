@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="funoscope.FunoscopeControllerTest" time="0.173" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="funoscope.FunoscopeControllerTest" time="0.016" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -30,7 +30,7 @@
     <property name="javax.xml.accessExternalDTD" value="all"/>
     <property name="classworlds.conf" value="C:\Program Files\springsource\apache-maven-3.3.3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_65\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.7.0_79\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\springsource\apache-maven-3.3.3\bin;C:\dev_workspace\dev-tool\svn-dev-tool\src\main\python;C:\Python33;C:\Program Files (x86)\PostgreSQL\9.1\bin;C:\Program Files\SVN_old\bin;C:\Program Files (x86)\Skype\Phone\;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_65\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.7.0_79\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\springsource\apache-maven-3.3.3\bin;C:\dev_workspace\dev-tool\svn-dev-tool\src\main\python;C:\Python33;C:\Program Files (x86)\PostgreSQL\9.1\bin;C:\Program Files\SVN_old\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -65,5 +65,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testFunoscope" classname="funoscope.FunoscopeControllerTest" time="0.173"/>
+  <testcase name="testFunoscope" classname="funoscope.FunoscopeControllerTest" time="0.016"/>
 </testsuite>

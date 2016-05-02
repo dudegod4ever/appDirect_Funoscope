@@ -23,35 +23,7 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
 		</dependency>
-        <!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework.security.oauth</groupId>
-			<artifactId>spring-security-oauth2</artifactId>
-		</dependency>
-        <dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>angularjs</artifactId>
-			<version>1.4.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>3.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator</artifactId>
-		</dependency>  -->
-		<dependency>
+       	<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
@@ -90,6 +62,21 @@
 		    <artifactId>hsqldb</artifactId>
 		    <scope>runtime</scope>
 		</dependency>
+				<dependency>
+		    <groupId>org.hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>oauth.signpost</groupId>
+			<artifactId>signpost-core</artifactId>
+			<version>1.2.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
     </dependencies>
 
     <properties>
@@ -107,34 +94,16 @@
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
                 <executions>
-                	<execution>
-                        <id>common-xjc</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <generateDirectory>src/main/java</generateDirectory>
-                            <generatePackage>funoscope.web.generatedxml.v1.request</generatePackage>
-                            <schemaDirectory>src/main/resources/xml/v1/request</schemaDirectory>
-                            <schemaIncludes>
-								<include>*.xsd</include>
-							</schemaIncludes>
-                            <strict>false</strict>
-                            <removeOldOutput>false</removeOldOutput>
-                            <verbose>true</verbose>
-                            </configuration>
-                    </execution>
                     <execution>
-                        <id>common-xjc2</id>
+                        <id>appdirect</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <generateDirectory>src/main/java</generateDirectory>
-                            <generatePackage>funoscope.web.generatedxml.v1.response</generatePackage>
-                            <schemaDirectory>src/main/resources/xml/v1/response</schemaDirectory>
+                            <generatePackage>funoscope.web.generatedxml.event</generatePackage>
+                            <schemaDirectory>src/main/resources/xml/event</schemaDirectory>
                             <schemaIncludes>
 								<include>*.xsd</include>
 							</schemaIncludes>

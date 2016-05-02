@@ -5,7 +5,7 @@ public class WebConstants {
     public final static String HTTP_APPDIRECT = "http://www.appdirect.com";
     public final static String HTTPS_APPDIRECT = "https://www.appdirect.com";
 
-    public final static String HTTP_FUNOSCOPE = "http://a.knrz.co/horoscope-api/archive";///2016/32/aries
+    public final static String HTTP_FUNOSCOPE = "http://a.knrz.co/horoscope-api/archive";
 
     public final static String SLASH = "/";
     public final static String LEFT_BRACKET = "{";
@@ -23,11 +23,20 @@ public class WebConstants {
     public final static String MARKETPLACE = "marketplace";
     public final static String PRODUCTS = "products";
     public final static String FUNOSCOPE = "funoscope";
+    public final static String INTEGRATION = "integration";
+
+    public final static String CREATE = "create";
+    public final static String EVENTS = "events";
+    public final static String EVENT = "event";
+    public final static String URL = "url";
+    public final static String AUTHORIZATION = "Authorization";
 
     public final static String PARAM_VERSION = LEFT_BRACKET + VERSION + RIGHT_BRACKET;
     public final static String PARAM_COMPANY_ID = LEFT_BRACKET + COMPANY_ID + RIGHT_BRACKET;
     public final static String PARAM_USER_ID = LEFT_BRACKET + USER_ID + RIGHT_BRACKET;
     public final static String PARAM_SUBSCRIPTION_ID = LEFT_BRACKET + SUBSCRIPTION_ID + RIGHT_BRACKET;
+    public final static String PARAM_EVENT_TOKEN = LEFT_BRACKET + EVENT + RIGHT_BRACKET;
+    public final static String PARAM_AUTHORIZATION = LEFT_BRACKET + AUTHORIZATION + RIGHT_BRACKET;
 
     public final static String VALID_VERSION_V1 = "v1";
 
@@ -39,4 +48,15 @@ public class WebConstants {
     public final static String URL_FUNOSCOPE_BASE = SLASH + FUNOSCOPE;
     public final static String URL_FUNOSCOPE_GET = SLASH + PARAM_VERSION;
 
+    public final static String URL_APPDIRECT_CREATE = SLASH + CREATE;
+
+    public final static String URL_APPDIRECT_OAUTH_VALIDATION_BASE = SLASH + API + SLASH + INTEGRATION;
+    public final static String URL_APPDIRECT_OAUTH_VALIDATION_STUB_BASE = SLASH + PARAM_VERSION + SLASH + EVENTS + SLASH + PARAM_EVENT_TOKEN;
+    public final static String URL_APPDIRECT_OAUTH_VALIDATION_STUB = URL_APPDIRECT_OAUTH_VALIDATION_BASE + URL_APPDIRECT_OAUTH_VALIDATION_STUB_BASE;
+
+    public final static String HEADER_AUTHORISATION = AUTHORIZATION + "=" + PARAM_AUTHORIZATION;
+
+    //TODO encrypt this
+    public final static String FUNOSCOPE_CONSUMER_KEY_VALUE = "funoscope2-111347";
+    public final static String FUNOSCOPE_SECRET_KEY_VALUE = "Z7ehUB7D4n4Vg7Fx";
 }

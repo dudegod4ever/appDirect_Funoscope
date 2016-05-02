@@ -1,4 +1,2 @@
 funoscope\FunoscopeControllerTest.class
-funoscope\AbstractSubscriptionControllerTest.class
-funoscope\SubscriptionControllerActionCreateTest.class
-funoscope\SubscriptionControllerTest.class
+funoscope\SubscriptionOrderControllerTest.class
