@@ -26,6 +26,8 @@ public class WebConstants {
     public final static String INTEGRATION = "integration";
 
     public final static String CREATE = "create";
+    public final static String CHANGE = "change";
+    public final static String CANCEL = "cancel";
     public final static String EVENTS = "events";
     public final static String EVENT = "event";
     public final static String URL = "url";
@@ -49,6 +51,8 @@ public class WebConstants {
     public final static String URL_FUNOSCOPE_GET = SLASH + PARAM_VERSION;
 
     public final static String URL_APPDIRECT_CREATE = SLASH + CREATE;
+    public final static String URL_APPDIRECT_CANCEL = SLASH + CANCEL;
+    public final static String URL_APPDIRECT_CHANGE = SLASH + CHANGE;
 
     public final static String URL_APPDIRECT_OAUTH_VALIDATION_BASE = SLASH + API + SLASH + INTEGRATION;
     public final static String URL_APPDIRECT_OAUTH_VALIDATION_STUB_BASE = SLASH + PARAM_VERSION + SLASH + EVENTS + SLASH + PARAM_EVENT_TOKEN;

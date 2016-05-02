@@ -23,6 +23,8 @@ public class FunoscopeController {
     @RequestMapping(value = WebConstants.URL_FUNOSCOPE_GET, method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String getFunoscope(@PathVariable(WebConstants.VERSION) String pVersion, HttpServletResponse pResponse) {
 
+        System.out.println("Funoscope requested!!");
+
         return FunoscopeStringGenUtil.getQuote(httpClient);
     }
 

@@ -85,7 +85,27 @@ public class SubscriptionControllerTest {
         String url = BASE_URL + WebConstants.URL_APPDIRECT_OAUTH_VALIDATION_STUB.replace(WebConstants.PARAM_VERSION, VERSION_V1)
                                                                                 .replace(WebConstants.PARAM_EVENT_TOKEN, EVENT_TOKEN);
 
-        //String tempUrl = OauthUtil.signUrl(url, WebConstants.FUNOSCOPE_CONSUMER_KEY_VALUE, WebConstants.FUNOSCOPE_SECRET_KEY_VALUE);
+        url = URLEncoder.encode(url, StandardCharsets.UTF_8.name());
+
+        MvcResult subscriptionResult = mockMvc
+                                              .perform(MockMvcRequestBuilders.get(path).accept(MediaType.APPLICATION_XML_VALUE)
+                                                                             .header(WebConstants.AUTHORIZATION, AUTHORIZATION_STRING_VALUE)
+                                                                             .param(WebConstants.URL, DUMMY_BASE_URL))
+                                              .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+
+        assertNotNull(subscriptionResult);
+        String resultString = subscriptionResult.getResponse().getContentAsString();
+        assertNotNull(resultString);
+        //fails because of Oauth validation
+
+    }
+
+    @Test
+    public void testSubscriptionCancel() throws Exception {
+        String path = WebConstants.URL_APPDIRECT_CANCEL;
+
+        String url = BASE_URL + WebConstants.URL_APPDIRECT_OAUTH_VALIDATION_STUB.replace(WebConstants.PARAM_VERSION, VERSION_V1)
+                                                                                .replace(WebConstants.PARAM_EVENT_TOKEN, EVENT_TOKEN);
 
         url = URLEncoder.encode(url, StandardCharsets.UTF_8.name());
 
@@ -98,6 +118,29 @@ public class SubscriptionControllerTest {
         assertNotNull(subscriptionResult);
         String resultString = subscriptionResult.getResponse().getContentAsString();
         assertNotNull(resultString);
+        //fails because of Oauth validation
+
+    }
+
+    @Test
+    public void testSubscriptionChange() throws Exception {
+        String path = WebConstants.URL_APPDIRECT_CHANGE;
+
+        String url = BASE_URL + WebConstants.URL_APPDIRECT_OAUTH_VALIDATION_STUB.replace(WebConstants.PARAM_VERSION, VERSION_V1)
+                                                                                .replace(WebConstants.PARAM_EVENT_TOKEN, EVENT_TOKEN);
+
+        url = URLEncoder.encode(url, StandardCharsets.UTF_8.name());
+
+        MvcResult subscriptionResult = mockMvc
+                                              .perform(MockMvcRequestBuilders.get(path).accept(MediaType.APPLICATION_XML_VALUE)
+                                                                             .header(WebConstants.AUTHORIZATION, AUTHORIZATION_STRING_VALUE)
+                                                                             .param(WebConstants.URL, DUMMY_BASE_URL))
+                                              .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+
+        assertNotNull(subscriptionResult);
+        String resultString = subscriptionResult.getResponse().getContentAsString();
+        assertNotNull(resultString);
+        //fails because of Oauth validation
 
     }
 
