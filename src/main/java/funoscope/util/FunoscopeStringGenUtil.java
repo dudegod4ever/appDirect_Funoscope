@@ -46,7 +46,7 @@ public class FunoscopeStringGenUtil {
         }
 
         if (response == null) {
-            //the server is down, inspire anyway
+            System.out.println("The REST server is down, inspire anyway!");
             int index = errorRandomizer.nextInt(quotes.length);
             response = quotes[index];
         }

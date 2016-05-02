@@ -128,28 +128,31 @@ public class SubscriptionControllerTest {
         assertEquals("true", result.getSuccess());
     }
 
-    /*@Test
+    @Test
     public void testSubscriptionOrderNoSkip() throws Exception {
-    
+        System.clearProperty(WebConstants.SKIP_AUTH_VALIDATION);
+
         String path = WebConstants.URL_APPDIRECT_CREATE;
-    
+
         String url = BASE_URL + WebConstants.URL_APPDIRECT_OAUTH_VALIDATION_STUB.replace(WebConstants.PARAM_VERSION, VERSION_V1)
                                                                                 .replace(WebConstants.PARAM_EVENT_TOKEN, EVENT_TOKEN);
-    
+
         url = URLEncoder.encode(url, StandardCharsets.UTF_8.name());
-    
+
         MvcResult subscriptionResult = mockMvc
                                               .perform(MockMvcRequestBuilders.get(path).accept(MediaType.APPLICATION_XML_VALUE)
                                                                              .header(WebConstants.AUTHORIZATION, AUTHORIZATION_STRING_VALUE)
-                                                                             .param(WebConstants.URL, DUMMY_BASE_URL))
+                                                                             .param(WebConstants.URL, DUMMY_BASE_ORDER_URL))
                                               .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
-    
+
         assertNotNull(subscriptionResult);
         String resultString = subscriptionResult.getResponse().getContentAsString();
         assertNotNull(resultString);
-        //fails because of Oauth validation
+        resultString = resultString.replace("Result", "result"); //TODO hack -- investigate later
+        Result result = JaxbUtil.getResultFromResponseString(resultString);
+        assertNotNull(result);
+        assertEquals("false", result.getSuccess());//oauth problem
     }
-    */
 
     @Test
     public void testSubscriptionCancel() throws Exception {

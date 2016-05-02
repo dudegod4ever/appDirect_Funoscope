@@ -37,6 +37,10 @@ public class OauthUtil {
                                                                           OAuthCommunicationException, OAuthSignatureException {
 
         OAuthParameters oauthParameters = OauthUtil.populateFromHeader(pHeader);
+        OAuthSecrets secrets = new OAuthSecrets();
+        secrets.consumerSecret(pSecret);
+        OAuthRequest request = new OAuthServletRequestWrapper(pHttpServletRequest);
+        OAuthSignature.verify(request, oauthParameters, secrets);
 
         System.out.println("isValid oauthParameters Consumer Key: " + oauthParameters.getConsumerKey());
         System.out.println("isValid oauthParameters Signature: " + oauthParameters.getSignature());
@@ -50,14 +54,10 @@ public class OauthUtil {
         System.out.println("isValid Request Header: " + pHeader);
         System.out.println("isValid Consumer Key: " + pConsumerKey);
         System.out.println("isValid Secret Key: " + pSecret);
-
-        OAuthSecrets secrets = new OAuthSecrets();
-        secrets.consumerSecret(pSecret);
-        OAuthRequest request = new OAuthServletRequestWrapper(pHttpServletRequest);
-
         System.out.println("isValid RESULT : " + OAuthSignature.verify(request, oauthParameters, secrets));
 
         if (System.getProperty(WebConstants.SKIP_AUTH_VALIDATION) != null) {
+            System.out.println("skipping oauth validation");
             return true;
         }
 
@@ -70,6 +70,9 @@ public class OauthUtil {
         if (System.getProperty(WebConstants.SKIP_AUTH_VALIDATION) != null) {
             return pUrl;
         }
+
+        System.out.println("skipping oauth signature");
+
         OAuthConsumer consumer = new DefaultOAuthConsumer(pConsumerKey, pSecret);
         consumer.setSigningStrategy(new QueryStringSigningStrategy());
 

@@ -19,9 +19,6 @@ public class SubscriptionAppDirectCreateController extends AbstractSubscriptionC
     @RequestMapping(method = RequestMethod.GET, headers = { WebConstants.AUTHORIZATION }, produces = MediaType.APPLICATION_XML_VALUE)
     public Result createSubscription(@RequestParam(value = WebConstants.URL, required = true) String pUrl,
                                      @RequestHeader(value = WebConstants.AUTHORIZATION) String pOauthHeader, HttpServletRequest pHttpServletRequest) {
-        System.out.println("Enry point reached: " + WebConstants.URL_APPDIRECT_CREATE);
-        System.out.println(" Values : " + pUrl + " OauthHEader" + pOauthHeader);
-
         return processHttpRequest(pUrl, pOauthHeader, pHttpServletRequest);
     }
 
