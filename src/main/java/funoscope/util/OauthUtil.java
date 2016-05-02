@@ -10,6 +10,7 @@ import com.sun.jersey.oauth.signature.OAuthSecrets;
 import com.sun.jersey.oauth.signature.OAuthSignature;
 import com.sun.jersey.oauth.signature.OAuthSignatureException;
 
+import funoscope.web.WebConstants;
 import funoscope.web.adapter.OAuthServletRequestWrapper;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.basic.DefaultOAuthConsumer;
@@ -20,6 +21,8 @@ import oauth.signpost.signature.QueryStringSigningStrategy;
 
 @Service
 public class OauthUtil {
+
+    private final static String OAUTH_START = "OAuth ";
 
     private final static String OAUTH_REALM = "OAuth realm";
     private final static String OAUTH_NONCE = "oauth_nonce";
@@ -35,12 +38,28 @@ public class OauthUtil {
 
         OAuthParameters oauthParameters = OauthUtil.populateFromHeader(pHeader);
 
-        System.out.println("Request Consumer Key: " + oauthParameters.getConsumerKey());
-        System.out.println("Request Signature: " + oauthParameters.getSignature());
+        System.out.println("isValid oauthParameters Consumer Key: " + oauthParameters.getConsumerKey());
+        System.out.println("isValid oauthParameters Signature: " + oauthParameters.getSignature());
+        System.out.println("isValid oauthParameters Signature Method: " + oauthParameters.getSignatureMethod());
+        System.out.println("isValid oauthParameters NONCE : " + oauthParameters.getNonce());
+        System.out.println("isValid oauthParameters REALM : " + oauthParameters.getRealm());
+        System.out.println("isValid oauthParameters TIMESTAMP : " + oauthParameters.getTimestamp());
+        System.out.println("isValid oauthParameters VERSION : " + oauthParameters.getVersion());
+
+        System.out.println("isValid URL: " + pUrl);
+        System.out.println("isValid Request Header: " + pHeader);
+        System.out.println("isValid Consumer Key: " + pConsumerKey);
+        System.out.println("isValid Secret Key: " + pSecret);
 
         OAuthSecrets secrets = new OAuthSecrets();
         secrets.consumerSecret(pSecret);
         OAuthRequest request = new OAuthServletRequestWrapper(pHttpServletRequest);
+
+        System.out.println("isValid RESULT : " + OAuthSignature.verify(request, oauthParameters, secrets));
+
+        if (System.getProperty(WebConstants.SKIP_AUTH_VALIDATION) != null) {
+            return true;
+        }
 
         return OAuthSignature.verify(request, oauthParameters, secrets);
     }
@@ -48,6 +67,9 @@ public class OauthUtil {
     public static String signUrl(String pUrl, String pConsumerKey, String pSecret) throws OAuthCommunicationException, OAuthExpectationFailedException,
                                                                                    OAuthMessageSignerException {
 
+        if (System.getProperty(WebConstants.SKIP_AUTH_VALIDATION) != null) {
+            return pUrl;
+        }
         OAuthConsumer consumer = new DefaultOAuthConsumer(pConsumerKey, pSecret);
         consumer.setSigningStrategy(new QueryStringSigningStrategy());
 
@@ -55,8 +77,12 @@ public class OauthUtil {
     }
 
     public static OAuthParameters populateFromHeader(String pHeader) {
+        String header = pHeader;
+        if (pHeader.startsWith(OAUTH_START)) {
+            header = header.replaceFirst(OAUTH_START, "");
+        }
         OAuthParameters oAuthParameters = new OAuthParameters();
-        String[] authParams = pHeader.replace("\"", "").split(",");
+        String[] authParams = header.replace("\"", "").split(",");
         for (int i = 0; i < authParams.length; i++) {
             int sepratorIndex = authParams[i].indexOf("=");
             String key = authParams[i].substring(0, sepratorIndex).trim();

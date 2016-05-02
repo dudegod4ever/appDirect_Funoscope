@@ -16,11 +16,12 @@ Get it on!!!
 
 Requirements
 Installed Java 8 version of your computer. 
+The consumer key and secret from your appdirect integration env for those request to work
 
 How it works?
 
 Simply go to the directory that you have copied the project and run from a command line
-	java -jar target/funoscope.jar
+	java -jar target/funoscope.jar <consumer_key> <secret>
 
 
 Funoscope is ready and rolling

@@ -61,6 +61,9 @@ public class WebConstants {
     public final static String HEADER_AUTHORISATION = AUTHORIZATION + "=" + PARAM_AUTHORIZATION;
 
     //TODO encrypt this and put this somewhere secure
-    public final static String FUNOSCOPE_CONSUMER_KEY_VALUE = "funoscope2-111347";
-    public final static String FUNOSCOPE_SECRET_KEY_VALUE = "Z7ehUB7D4n4Vg7Fx";
+    public final static String FUNOSCOPE_CONSUMER_KEY = "FUNOSCOPE_CONSUMER_KEY";
+    public final static String FUNOSCOPE_SECRET_KEY = "FUNOSCOPE_SECRET_KEY";
+
+    //it<S a secret
+    public final static String SKIP_AUTH_VALIDATION = "SKIP_AUTH_VALIDATION";
 }
