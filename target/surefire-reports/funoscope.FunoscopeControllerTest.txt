@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: funoscope.FunoscopeControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.814 sec - in funoscope.FunoscopeControllerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.871 sec - in funoscope.FunoscopeControllerTest

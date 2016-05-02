@@ -36,8 +36,13 @@ and a funoscope message will appear that will make your day
 Enjoy as many time as you want, every refresh of the page in your browser will give you a new message
 
 
-Great thanks to http://www.theonion.com/
+Great thanks to http://www.theonion.com/ and it's archiving site http://a.knrz.co/horoscope-api/archive 
 
 if at any time you want to change the code and rebuild it, the command is simple
 
 mvn clean package
+
+<cheat code>
+To skip the oauth validation for the appDirect modules, use the command
+java -jar target/funoscope.jar <consumer_key> <secret> true
+

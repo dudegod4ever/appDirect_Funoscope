@@ -27,8 +27,6 @@ public class FunoscopeControllerTest {
 
     protected MockMvc mockMvc;
 
-    protected final static String VERSION_V1 = "v1";
-
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -39,7 +37,7 @@ public class FunoscopeControllerTest {
 
     @Test
     public void testFunoscope() throws Exception {
-        String path = WebConstants.URL_FUNOSCOPE_BASE + WebConstants.SLASH + VERSION_V1;
+        String path = WebConstants.URL_FUNOSCOPE_BASE + WebConstants.SLASH + WebConstants.VALID_VERSION_V1;
 
         MvcResult funoscopeResult = mockMvc.perform(MockMvcRequestBuilders.get(path)).andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
         assertNotNull(funoscopeResult);
