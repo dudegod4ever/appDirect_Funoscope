@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2016.05.01 à 10:43:51 PM EDT 
+// Généré le : 2016.05.02 à 11:01:55 AM EDT 
 //
 
 
@@ -64,6 +64,18 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
+ *                   &lt;element name="account"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;complexContent&gt;
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                           &lt;sequence&gt;
+ *                             &lt;element name="accountIdentifier" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                             &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                           &lt;/sequence&gt;
+ *                         &lt;/restriction&gt;
+ *                       &lt;/complexContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
  *                   &lt;element name="company"&gt;
  *                     &lt;complexType&gt;
  *                       &lt;complexContent&gt;
@@ -598,6 +610,18 @@ public class Event {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
+     *         &lt;element name="account"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;complexContent&gt;
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                 &lt;sequence&gt;
+     *                   &lt;element name="accountIdentifier" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *                   &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *                 &lt;/sequence&gt;
+     *               &lt;/restriction&gt;
+     *             &lt;/complexContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
      *         &lt;element name="company"&gt;
      *           &lt;complexType&gt;
      *             &lt;complexContent&gt;
@@ -670,6 +694,7 @@ public class Event {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
+        "account",
         "company",
         "configuration",
         "order"
@@ -677,11 +702,37 @@ public class Event {
     public static class Payload {
 
         @XmlElement(required = true)
+        protected Event.Payload.Account account;
+        @XmlElement(required = true)
         protected Event.Payload.Company company;
         @XmlElement(required = true)
         protected Event.Payload.Configuration configuration;
         @XmlElement(required = true)
         protected Event.Payload.Order order;
+
+        /**
+         * Obtient la valeur de la propriété account.
+         * 
+         * @return
+         *     possible object is
+         *     {@link Event.Payload.Account }
+         *     
+         */
+        public Event.Payload.Account getAccount() {
+            return account;
+        }
+
+        /**
+         * Définit la valeur de la propriété account.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Event.Payload.Account }
+         *     
+         */
+        public void setAccount(Event.Payload.Account value) {
+            this.account = value;
+        }
 
         /**
          * Obtient la valeur de la propriété company.
@@ -753,6 +804,89 @@ public class Event {
          */
         public void setOrder(Event.Payload.Order value) {
             this.order = value;
+        }
+
+
+        /**
+         * <p>Classe Java pour anonymous complex type.
+         * 
+         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * 
+         * <pre>
+         * &lt;complexType&gt;
+         *   &lt;complexContent&gt;
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *       &lt;sequence&gt;
+         *         &lt;element name="accountIdentifier" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+         *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+         *       &lt;/sequence&gt;
+         *     &lt;/restriction&gt;
+         *   &lt;/complexContent&gt;
+         * &lt;/complexType&gt;
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "accountIdentifier",
+            "status"
+        })
+        public static class Account {
+
+            @XmlElement(required = true)
+            protected String accountIdentifier;
+            @XmlElement(required = true)
+            protected String status;
+
+            /**
+             * Obtient la valeur de la propriété accountIdentifier.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getAccountIdentifier() {
+                return accountIdentifier;
+            }
+
+            /**
+             * Définit la valeur de la propriété accountIdentifier.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setAccountIdentifier(String value) {
+                this.accountIdentifier = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété status.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getStatus() {
+                return status;
+            }
+
+            /**
+             * Définit la valeur de la propriété status.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setStatus(String value) {
+                this.status = value;
+            }
+
         }
 
 

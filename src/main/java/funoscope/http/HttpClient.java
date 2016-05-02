@@ -21,7 +21,6 @@ public class HttpClient {
             connection = new URL(pTargetURL).openConnection();
 
             connection.setRequestProperty("Accept-Charset", StandardCharsets.UTF_8.name());
-            connection.setConnectTimeout(2000);
             InputStream response = connection.getInputStream();
 
             Scanner scanner = new Scanner(response);
@@ -39,7 +38,7 @@ public class HttpClient {
             socket.connect(new InetSocketAddress(host, port), timeout);
             return true;
         } catch (IOException e) {
-            return false; // Either timeout or unreachable or failed DNS lookup.
+            return false;
         }
     }
 }

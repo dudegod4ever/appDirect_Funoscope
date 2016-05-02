@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2016.05.01 à 10:43:51 PM EDT 
+// Généré le : 2016.05.02 à 11:01:55 AM EDT 
 //
 
 
@@ -90,6 +90,14 @@ public class ObjectFactory {
      */
     public Result createResult() {
         return new Result();
+    }
+
+    /**
+     * Create an instance of {@link Event.Payload.Account }
+     * 
+     */
+    public Event.Payload.Account createEventPayloadAccount() {
+        return new Event.Payload.Account();
     }
 
     /**
