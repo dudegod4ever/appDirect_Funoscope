@@ -32,7 +32,7 @@ public class OauthUtil {
     private final static String OAUTH_VERSION = "oauth_version";
     private final static String OAUTH_SIGNATURE = "oauth_signature";
 
-    public static Boolean isValid(String pUrl, String pConsumerKey, String pSecret, String pHeader,
+    public static boolean isValid(String pUrl, String pConsumerKey, String pSecret, String pHeader,
                                   HttpServletRequest pHttpServletRequest) throws OAuthMessageSignerException, OAuthExpectationFailedException,
                                                                           OAuthCommunicationException, OAuthSignatureException {
 
@@ -40,28 +40,35 @@ public class OauthUtil {
         OAuthSecrets secrets = new OAuthSecrets();
         secrets.consumerSecret(pSecret);
         OAuthRequest request = new OAuthServletRequestWrapper(pHttpServletRequest);
-        OAuthSignature.verify(request, oauthParameters, secrets);
 
-        System.out.println("isValid oauthParameters Consumer Key: " + oauthParameters.getConsumerKey());
-        System.out.println("isValid oauthParameters Signature: " + oauthParameters.getSignature());
-        System.out.println("isValid oauthParameters Signature Method: " + oauthParameters.getSignatureMethod());
-        System.out.println("isValid oauthParameters NONCE : " + oauthParameters.getNonce());
-        System.out.println("isValid oauthParameters REALM : " + oauthParameters.getRealm());
-        System.out.println("isValid oauthParameters TIMESTAMP : " + oauthParameters.getTimestamp());
-        System.out.println("isValid oauthParameters VERSION : " + oauthParameters.getVersion());
+        boolean result = OAuthSignature.verify(request, oauthParameters, secrets);
 
-        System.out.println("isValid URL: " + pUrl);
-        System.out.println("isValid Request Header: " + pHeader);
-        System.out.println("isValid Consumer Key: " + pConsumerKey);
-        System.out.println("isValid Secret Key: " + pSecret);
-        System.out.println("isValid RESULT : " + OAuthSignature.verify(request, oauthParameters, secrets));
+        if (result == false) {
+            //help me debug this
+            System.out.println("****** OAUTH PARAM ********");
+            System.out.println("oauthParameters Consumer Key: " + oauthParameters.getConsumerKey());
+            System.out.println("oauthParameters Signature: " + oauthParameters.getSignature());
+            System.out.println("oauthParameters Signature Method: " + oauthParameters.getSignatureMethod());
+            System.out.println("oauthParameters NONCE : " + oauthParameters.getNonce());
+            System.out.println("oauthParameters REALM : " + oauthParameters.getRealm());
+            System.out.println("oauthParameters TIMESTAMP : " + oauthParameters.getTimestamp());
+            System.out.println("oauthParameters VERSION : " + oauthParameters.getVersion());
 
-        if (System.getProperty(WebConstants.SKIP_AUTH_VALIDATION) != null) {
-            System.out.println("skipping oauth validation");
-            return true;
+            System.out.println("Target URL: " + pUrl);
+            System.out.println("Request Header: " + pHeader);
+            System.out.println("Consumer Key: " + pConsumerKey);
+            System.out.println("Secret Key: " + pSecret);
+
+            System.out.println("RESULT : " + result);
+
+            if (System.getProperty(WebConstants.SKIP_AUTH_VALIDATION) != null) {
+                System.out.println("skipping oauth validation because it has failed!!!");
+                return true;
+            }
+
         }
 
-        return OAuthSignature.verify(request, oauthParameters, secrets);
+        return result;
     }
 
     public static String signUrl(String pUrl, String pConsumerKey, String pSecret) throws OAuthCommunicationException, OAuthExpectationFailedException,
